@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wundii\DataMapper\Tests;
+namespace Wundii\DataMapper\LaravelPackage\Tests;
 
 use Illuminate\Http\Request;
 use PHPUnit\Framework\MockObject\Exception;

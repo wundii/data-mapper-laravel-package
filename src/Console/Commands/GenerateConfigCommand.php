@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Wundii\DataMapper\LaravelPackage\Console\Commands;
 
 use Illuminate\Console\Command;
+use Wundii\DataMapper\LaravelPackage\DataMapperServiceProvider;
 
 class GenerateConfigCommand extends Command
 {
@@ -15,7 +16,7 @@ class GenerateConfigCommand extends Command
     public function handle(): int
     {
         $this->call('vendor:publish', [
-            '--provider' => \Wundii\DataMapper\LaravelPackage\DataMapperServiceProvider::class,
+            '--provider' => DataMapperServiceProvider::class,
             '--tag' => 'config',
         ]);
 

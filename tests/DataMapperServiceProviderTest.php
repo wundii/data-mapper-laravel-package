@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wundii\DataMapper\Tests;
+namespace Wundii\DataMapper\LaravelPackage\Tests;
 
 use Orchestra\Testbench\TestCase;
 use Wundii\DataMapper\DataConfig;
