@@ -1,7 +1,7 @@
 # Wundii\Data-Mapper-Laravel-Package
 
 [![PHP-Tests](https://github.com/wundii/data-mapper-laravel-package/actions/workflows/code_quality.yml/badge.svg)](https://github.com/wundii/data-mapper-laravel-package/actions/workflows/code_quality.yml)
-[![PHPStan](https://img.shields.io/badge/PHPStan-level%209-brightgreen.svg?style=flat)](https://phpstan.org/)
+[![PHPStan](https://img.shields.io/badge/PHPStan-level%2010-brightgreen.svg?style=flat)](https://phpstan.org/)
 ![VERSION](https://img.shields.io/packagist/v/wundii/data-mapper-laravel-package)
 [![PHP](https://img.shields.io/packagist/php-v/wundii/data-mapper-laravel-package)](https://www.php.net/)
 [![Rector](https://img.shields.io/badge/Rector-8.2-blue.svg?style=flat)](https://getrector.com)

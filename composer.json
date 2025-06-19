@@ -36,6 +36,7 @@
     "symfony/var-dumper": "^7.0",
     "symfony/yaml": "^7.0",
     "symplify/easy-coding-standard": "^12.3",
+    "orchestra/testbench": "^10.0",
     "wundii/phplint": "^0.3"
   },
   "autoload": {

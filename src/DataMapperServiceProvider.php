@@ -14,10 +14,12 @@ use Wundii\DataMapper\LaravelPackage\Console\Commands\GenerateConfigCommand;
 
 class DataMapperServiceProvider extends ServiceProvider
 {
+    public const CONFIG_PATH = __DIR__ . '/../config/data-mapper.php';
+
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/data-mapper.php',
+            self::CONFIG_PATH,
             'data-mapper'
         );
 
@@ -76,7 +78,7 @@ class DataMapperServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            __DIR__ . '/../config/data-mapper.php' => $this->app->configPath('data-mapper.php'),
+            self::CONFIG_PATH => $this->app->configPath('data-mapper.php'),
         ], 'config');
 
         if ($this->app->runningInConsole()) {
