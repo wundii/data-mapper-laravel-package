@@ -18,7 +18,7 @@
     "ext-simplexml": "*",
     "ext-spl": "*",
     "ext-xml": "*",
-    "laravel/framework": "v10.0 || v11.0 || v12.0",
+    "laravel/framework": "^10.0 || ^11.0 || ^12.0",
     "illuminate/console": "^10.0 || ^11.0 || ^12.0",
     "illuminate/config": "^10.0 || ^11.0 || ^12.0",
     "illuminate/http": "^10.0 || ^11.0 || ^12.0",
