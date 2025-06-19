@@ -9,13 +9,14 @@ use Illuminate\Console\Command;
 class GenerateConfigCommand extends Command
 {
     protected $signature = 'data-mapper:publish-config';
+
     protected $description = 'Publish the data-mapper configuration file';
 
     public function handle(): int
     {
         $this->call('vendor:publish', [
-            '--provider' => 'Wundii\DataMapper\LaravelPackage\DataMapperServiceProvider',
-            '--tag' => 'config'
+            '--provider' => \Wundii\DataMapper\LaravelPackage\DataMapperServiceProvider::class,
+            '--tag' => 'config',
         ]);
 
         $this->info('Data-mapper configuration published successfully!');
