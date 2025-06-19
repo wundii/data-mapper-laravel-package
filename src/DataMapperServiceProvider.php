@@ -8,6 +8,7 @@ use Illuminate\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Wundii\DataMapper\DataConfig;
+use Wundii\DataMapper\DataMapper as BaseDataMapper;
 use Wundii\DataMapper\Enum\AccessibleEnum;
 use Wundii\DataMapper\Enum\ApproachEnum;
 use Wundii\DataMapper\LaravelPackage\Console\Commands\GenerateConfigCommand;
@@ -69,6 +70,15 @@ class DataMapperServiceProvider extends ServiceProvider
                 $dataConfig = $application->make(DataConfig::class);
 
                 return new DataMapper($dataConfig);
+            }
+        );
+
+        $this->app->singleton(
+            BaseDataMapper::class,
+            function (Application $application): BaseDataMapper {
+                $dataConfig = $application->make(DataConfig::class);
+
+                return new BaseDataMapper($dataConfig);
             }
         );
 

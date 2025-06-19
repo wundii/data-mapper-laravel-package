@@ -18,17 +18,18 @@
     "ext-simplexml": "*",
     "ext-spl": "*",
     "ext-xml": "*",
-    "laravel/framework": "^10.0 || ^11.0 || ^12.0",
-    "illuminate/console": "^10.0 || ^11.0 || ^12.0",
     "illuminate/config": "^10.0 || ^11.0 || ^12.0",
+    "illuminate/console": "^10.0 || ^11.0 || ^12.0",
     "illuminate/http": "^10.0 || ^11.0 || ^12.0",
     "illuminate/support": "^10.0 || ^11.0 || ^12.0",
+    "laravel/framework": "^10.0 || ^11.0 || ^12.0",
     "wundii/data-mapper": "1.3.1"
   },
   "require-dev": {
     "ext-dom": "*",
     "ext-libxml": "*",
     "nette/neon": "^v3.4",
+    "orchestra/testbench": "^10.0",
     "phpstan/phpstan": "^2.0",
     "phpstan/phpstan-strict-rules": "^2.0",
     "phpunit/phpunit": "^11.4",
@@ -36,7 +37,6 @@
     "symfony/var-dumper": "^7.0",
     "symfony/yaml": "^7.0",
     "symplify/easy-coding-standard": "^12.3",
-    "orchestra/testbench": "^10.0",
     "wundii/phplint": "^0.3"
   },
   "autoload": {

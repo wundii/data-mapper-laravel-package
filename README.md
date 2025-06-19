@@ -79,3 +79,73 @@ return [
     ],
 ];
 ```
+
+## Use as Laravel DataMapper Facade version
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Http\Controllers;
+
+use App\Http\Dto\TestClass;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Wundii\DataMapper\LaravelPackage\Facades\DataMapper;
+
+final class YourController extends Controller
+{
+    public function doSomething(Request $request): JsonResponse
+    {
+        // Automatic recognition of the format based on the content type of the request
+        // returns an instance of TestClass or an Exception
+        $testClass = DataMapper::request($request, TestClass::class);
+        
+        // or you can use tryRequest to avoid exceptions, null will be returned instead
+        $testClass = DataMapper::tryRequest($request, TestClass::class);
+        DataMapper::getMapStatusEnum();
+        DataMapper::getErrorMessage();
+        
+        // Do something with $testClass
+        
+        return response()->json(...);
+    }
+}
+```
+
+## Use as Native or Laravel DataMapper version
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Http\Controllers;
+
+use App\Http\Dto\TestClass;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Wundii\DataMapper\DataMapper as DataMapperNative;
+use Wundii\DataMapper\LaravelPackage\DataMapper as DataMapperLaravel;
+
+final class YourController extends Controller
+{
+    public function __construct(
+        private readonly DataMapperNative $dataMapperNative,
+        private readonly DataMapperLaravel $dataMapperLaravel,
+    ) {
+    }
+
+    public function doSomething(Request $request): JsonResponse
+    {
+        // you can use the native DataMapper methods 
+        $testClass = $this->dataMapperNative->json($request->getContent(), TestClass::class);
+        
+        // or you can use the Laravel DataMapper methods 
+        $testClass = $this->dataMapperLaravel->request($request, TestClass::class);
+        
+        // Do something with $testClass
+        
+        return response()->json(...);
+    }
+}
+```

@@ -6,7 +6,8 @@ namespace Wundii\DataMapper\LaravelPackage\Tests;
 
 use Orchestra\Testbench\TestCase;
 use Wundii\DataMapper\DataConfig;
-use Wundii\DataMapper\DataMapper;
+use Wundii\DataMapper\DataMapper as DataMapperNative;
+use Wundii\DataMapper\LaravelPackage\DataMapper as DataMapperLaravel;
 use Wundii\DataMapper\LaravelPackage\DataMapperServiceProvider;
 
 class DataMapperServiceProviderTest extends TestCase
@@ -17,16 +18,22 @@ class DataMapperServiceProviderTest extends TestCase
         $this->assertInstanceOf(DataConfig::class, $dataConfig);
     }
 
-    public function testItRegistersDataMapperSingleton(): void
+    public function testItRegistersDataMapperSingletonLaravel(): void
     {
-        $dataMapper = $this->app->make(DataMapper::class);
-        $this->assertInstanceOf(DataMapper::class, $dataMapper);
+        $dataMapper = $this->app->make(DataMapperLaravel::class);
+        $this->assertInstanceOf(DataMapperLaravel::class, $dataMapper);
     }
 
-    public function testItAliasesDataMapper(): void
+    public function testItRegistersDataMapperSingletonNative(): void
+    {
+        $dataMapper = $this->app->make(DataMapperNative::class);
+        $this->assertInstanceOf(DataMapperNative::class, $dataMapper);
+    }
+
+    public function testItAliasesDataMapperLaravel(): void
     {
         $dataMapper = $this->app->make('data-mapper');
-        $this->assertInstanceOf(DataMapper::class, $dataMapper);
+        $this->assertInstanceOf(DataMapperLaravel::class, $dataMapper);
     }
 
     protected function getPackageProviders($app)
