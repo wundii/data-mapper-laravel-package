@@ -12,7 +12,7 @@ use Wundii\DataMapper\LaravelPackage\DataMapper as DataMapperService;
  * @method static object request(\Illuminate\Http\Request $request, string $className, string[] $rootElementTree = [], bool $forceInstance = false)
  * @method static object|null tryRequest(\Illuminate\Http\Request $request, string $className, string[] $rootElementTree = [], bool $forceInstance = false)
  * @method static object setDataConfig(DataConfigInterface $dataConfig)
- * @method static object array(array<mixed> $data, string $className, string[] $rootElementTree = [], bool $forceInstance = false)
+ * @method static object array(mixed[] $data, string $className, string[] $rootElementTree = [], bool $forceInstance = false)
  * @method static object json(string $data, string $className, string[] $rootElementTree = [], bool $forceInstance = false)
  * @method static object neon(string $data, string $className, string[] $rootElementTree = [], bool $forceInstance = false)
  * @method static object object(object $data, string $className, string[] $rootElementTree = [], bool $forceInstance = false)

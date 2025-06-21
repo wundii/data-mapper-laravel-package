@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Wundii\DataMapper\LaravelPackage;
 
 use Illuminate\Config\Repository;
-use Illuminate\Foundation\Application;
+use Illuminate\Container\Container;
 use Illuminate\Support\ServiceProvider;
 use Wundii\DataMapper\DataConfig;
 use Wundii\DataMapper\DataMapper as BaseDataMapper;
@@ -26,8 +26,8 @@ class DataMapperServiceProvider extends ServiceProvider
 
         $this->app->singleton(
             DataConfig::class,
-            function (Application $application): DataConfig {
-                $configRepository = $application->get('config');
+            function (Container $container): DataConfig {
+                $configRepository = $container->get('config');
                 $configRepository = $configRepository instanceof Repository ? $configRepository : new Repository([]);
 
                 $dataConfig = $configRepository->get('data-mapper.data_config', []);
@@ -66,8 +66,8 @@ class DataMapperServiceProvider extends ServiceProvider
 
         $this->app->singleton(
             DataMapper::class,
-            function (Application $application): DataMapper {
-                $dataConfig = $application->make(DataConfig::class);
+            function (Container $container): DataMapper {
+                $dataConfig = $container->make(DataConfig::class);
 
                 return new DataMapper($dataConfig);
             }
@@ -75,8 +75,8 @@ class DataMapperServiceProvider extends ServiceProvider
 
         $this->app->singleton(
             BaseDataMapper::class,
-            function (Application $application): BaseDataMapper {
-                $dataConfig = $application->make(DataConfig::class);
+            function (Container $container): BaseDataMapper {
+                $dataConfig = $container->make(DataConfig::class);
 
                 return new BaseDataMapper($dataConfig);
             }
