@@ -1,10 +1,10 @@
-<div style="text-align:center">
+<p style="text-align:center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/wundii/data-mapper/refs/heads/main/assets/data-mapper-dark.png">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/wundii/data-mapper/refs/heads/main/assets/data-mapper-light.png">
     <img src="https://raw.githubusercontent.com/wundii/data-mapper/refs/heads/main/assets/data-mapper-light.png" alt="wundii/data-mapper-laravel-package" style="width: 100%; max-width: 600px; height: auto;">
   </picture>
-</div>
+</p>
 
 [![PHP-Tests](https://img.shields.io/github/actions/workflow/status/wundii/data-mapper-laravel-package/code_quality.yml?branch=main&style=for-the-badge)](https://github.com/wundii/data-mapper-laravel-package/actions/workflows/code_quality.yml)
 [![PHPStan](https://img.shields.io/badge/PHPStan-level%2010-brightgreen.svg?style=for-the-badge)](https://phpstan.org/)
@@ -16,7 +16,11 @@
 [![codecov](https://img.shields.io/codecov/c/github/wundii/data-mapper-laravel-package/main?token=R1FBWF8UJD&style=for-the-badge)](https://codecov.io/github/wundii/data-mapper-laravel-package)
 [![Downloads](https://img.shields.io/packagist/dt/wundii/data-mapper-laravel-package.svg?style=for-the-badge)](https://packagist.org/packages/wundii/data-mapper-laravel-package)
 
-A Laravel integration for [wundii/data-mapper](https://github.com/wundii/data-mapper), optimized for PHP 8.2+, offering high-performance deserialization and strict type mapping of JSON, NEON, objects, XML, YAML, and arrays into PHP classes.
+A Laravel integration for [wundii/data-mapper](https://github.com/wundii/data-mapper).
+This library is an extremely fast and strictly typed object mapper built for modern PHP (8.2+).
+It seamlessly transforms data from formats like JSON, NEON, XML, YAML, arrays, and standard objects into well-structured PHP objects.
+
+Ideal for developers who need reliable and efficient data mapping without sacrificing code quality or modern best practices.
 
 ## Features
 - Mapping source data into objects
@@ -26,6 +30,7 @@ A Laravel integration for [wundii/data-mapper](https://github.com/wundii/data-ma
 - Class mapping for interfaces or other classes
 - Custom root element for starting with the source data
 - Auto-casting for `float` types (eu to us decimal separator)
+- Target alias via Attribute for properties and methods
 
 ## Supported Types
 - `null`
@@ -34,10 +39,10 @@ A Laravel integration for [wundii/data-mapper](https://github.com/wundii/data-ma
 - `float`|`?float`
 - `string`|`?string`
 - `array`
-    - `int[]`
-    - `float[]`
-    - `string[]`
-    - `object[]`
+  - `int[]`
+  - `float[]`
+  - `string[]`
+  - `object[]`
 - `object`|`?object`
 - `enum`|`?enum`
 

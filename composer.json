@@ -1,7 +1,7 @@
 {
   "name": "wundii/data-mapper-laravel-package",
   "type": "library",
-  "description": "A Laravel integration for wundii/data-mapper, optimized for PHP 8.2+, offering high-performance deserialization and strict type mapping of JSON, NEON, objects, XML, YAML, and arrays into PHP classes.",
+  "description": "A Laravel integration for wundii/data-mapper, modern and fast object mapper for PHP 8.2+. Strict types. Converts JSON, XML, YAML, NEON, arrays, and objects to PHP objects.",
   "keywords": ["laravel","laravel-package","package","datamapper","mapper","xml","json","array","object", "deserialization", "deserialize"],
   "license": "MIT",
   "authors": [
