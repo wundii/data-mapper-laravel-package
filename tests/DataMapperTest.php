@@ -213,4 +213,43 @@ class DataMapperTest extends TestCase
         $this->assertEquals(MapStatusEnum::ERROR, $this->dataMapper->getMapStatusEnum());
         $this->assertSame('Invalid Yaml decode return', $this->dataMapper->getErrorMessage());
     }
+
+    public function testRequestWithValidContentTypeCsv(): void
+    {
+        $content = "string\ntest\n";
+        $object = TypeString::class;
+
+        $request = $this->getRequest('application/csv', $content);
+        $result = $this->dataMapper->tryRequest($request, $object);
+
+        $this->assertNull($this->dataMapper->getErrorMessage());
+        $this->assertEquals(MapStatusEnum::SUCCESS, $this->dataMapper->getMapStatusEnum());
+        $this->assertEquals([$this->expectedObject()], $result);
+    }
+
+    public function testRequestWithEmptyContentTypeCsv(): void
+    {
+        $content = '';
+        $object = TypeString::class;
+
+        $request = $this->getRequest('application/csv', $content);
+        $result = $this->dataMapper->tryRequest($request, $object);
+
+        $this->assertNull($result);
+        $this->assertEquals(MapStatusEnum::ERROR, $this->dataMapper->getMapStatusEnum());
+        $this->assertSame('No content provided in request', $this->dataMapper->getErrorMessage());
+    }
+
+    public function testRequestWithEmptyContentTypeCsvAndForceInstance(): void
+    {
+        $content = '';
+        $object = TypeString::class;
+
+        $request = $this->getRequest('application/csv', $content);
+        $result = $this->dataMapper->tryRequest($request, $object, [], true);
+
+        $this->assertNull($result);
+        $this->assertEquals(MapStatusEnum::ERROR, $this->dataMapper->getMapStatusEnum());
+        $this->assertStringContainsString('The file "" could not be written', $this->dataMapper->getErrorMessage());
+    }
 }
