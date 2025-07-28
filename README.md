@@ -31,6 +31,7 @@ Ideal for developers who need reliable and efficient data mapping without sacrif
 - Custom root element for starting with the source data
 - Auto-casting for `float` types (eu to us decimal separator)
 - Target alias via Attribute for properties and methods
+- Automatic data sorting for constructor parameters
 
 ## Supported Types
 - `null`
@@ -112,14 +113,14 @@ final class YourController extends Controller
         // Automatic recognition of the format based on the content type of the request
         // returns an instance of TestClass or an Exception
         $testClass = DataMapper::request($request, TestClass::class);
-        
+
         // or you can use tryRequest to avoid exceptions, null will be returned instead
         $testClass = DataMapper::tryRequest($request, TestClass::class);
         DataMapper::getMapStatusEnum();
         DataMapper::getErrorMessage();
-        
+
         // Do something with $testClass
-        
+
         return response()->json(...);
     }
 }
@@ -149,14 +150,14 @@ final class YourController extends Controller
 
     public function doSomething(Request $request): JsonResponse
     {
-        // you can use the native DataMapper methods 
+        // you can use the native DataMapper methods
         $testClass = $this->dataMapperNative->json($request->getContent(), TestClass::class);
-        
-        // or you can use the Laravel DataMapper methods 
+
+        // or you can use the Laravel DataMapper methods
         $testClass = $this->dataMapperLaravel->request($request, TestClass::class);
-        
+
         // Do something with $testClass
-        
+
         return response()->json(...);
     }
 }
