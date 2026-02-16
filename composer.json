@@ -30,7 +30,7 @@
     "ext-libxml": "*",
     "nette/neon": "3.4.7",
     "orchestra/testbench": "10.9.0",
-    "phpstan/phpstan": "2.1.38",
+    "phpstan/phpstan": "2.1.39",
     "phpstan/phpstan-strict-rules": "2.0.8",
     "phpunit/phpunit": "11.5.50",
     "rector/rector": "2.3.5",
