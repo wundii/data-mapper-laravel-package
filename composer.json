@@ -28,7 +28,7 @@
   "require-dev": {
     "ext-dom": "*",
     "ext-libxml": "*",
-    "nette/neon": "3.4.7",
+    "nette/neon": "3.4.8",
     "orchestra/testbench": "10.9.0",
     "phpstan/phpstan": "2.1.54",
     "phpstan/phpstan-strict-rules": "2.0.11",
