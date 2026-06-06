@@ -12,10 +12,6 @@ use Wundii\DataMapper\Enum\SourceTypeEnum;
 use Wundii\DataMapper\Exception\DataMapperException;
 use Wundii\DataMapper\LaravelPackage\Enum\MapStatusEnum;
 
-/**
- * @template T of object
- * @extends BaseDataMapper<T>
- */
 class DataMapper extends BaseDataMapper
 {
     private ?string $errorMessage = null;
@@ -45,6 +41,7 @@ class DataMapper extends BaseDataMapper
     /**
      * Map Laravel Request to object
      *
+     * @template T of object
      * @param class-string<T>|T $object
      * @param string[] $rootElementTree
      * @param bool $forceInstance // create a new instance, if no data can be found for the object
@@ -90,6 +87,7 @@ class DataMapper extends BaseDataMapper
     /**
      * Try to map Laravel Request to object without throwing exceptions
      *
+     * @template T of object
      * @param class-string<T>|T $object
      * @param string[] $rootElementTree
      * @param bool $forceInstance // create a new instance, if no data can be found for the object
